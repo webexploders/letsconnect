@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Your Location</title>
+</head>
+<body>
+  <h2>Please allow location access...</h2>
+  <script>
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const { latitude, longitude } = position.coords;
+
+      // Send location to backend
+      await fetch("http://localhost:3000/ping", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ latitude, longitude }),
+      });
+
+      document.body.innerHTML = "<h3>✅ Location sent. You can now close this page.</h3>";
+    }, () => {
+      alert("❌ Location access denied.");
+    });
+  </script>
+</body>
+</html>
