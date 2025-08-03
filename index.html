@@ -10,7 +10,7 @@
       const { latitude, longitude } = position.coords;
 
       // Send location to backend
-      await fetch("http://localhost:3000/ping", {
+await fetch("https://2bd2c390-1a7d-4271-96f3-44611c227049-00-9b11nfo5s12y.sisko.replit.dev/ping", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ latitude, longitude }),
@@ -23,3 +23,4 @@
   </script>
 </body>
 </html>
+
